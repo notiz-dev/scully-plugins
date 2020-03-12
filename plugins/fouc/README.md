@@ -27,7 +27,7 @@ exports.config = {
 If you want to use the plugin for a specific route do:
 
 ```js
-require('./projects/scully-plugin-fouc');
+require('@notiz/scully-plugin-fouc');
 
 exports.config = {
   ...
