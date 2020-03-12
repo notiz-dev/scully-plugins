@@ -8,7 +8,23 @@
     {
       "name": "Gary Großgarten",
       "url": "https://notiz.dev/authors/gary-grossgarten"
+    },
+    {
+      "name": "Marc Stammerjohann",
+      "url": "https://notiz.dev/authors/marc-stammerjohann"
     }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/notiz-dev/scully-plugins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/notiz-dev/scully-plugins/issues"
+  },
+  "homepage": "https://github.com/notiz-dev/scully-plugins/blob/master/plugins/lazy-images#readme",
+  "keywords": [
+    "scully",
+    "angular"
   ],
   "license": "MIT",
   "peerDependencies": {
