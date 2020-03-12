@@ -25,3 +25,24 @@ exports.config = {
   routes: {}
 };
 ```
+
+If you want to use the plugin for a specific route do:
+
+```js
+require('@notiz/scully-plugin-lazy-images');
+
+exports.config = {
+  ...
+  routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/blog'
+      },
+      postRenderers: ['lazyImages']
+    }
+  }
+  ...
+};
+
+```
