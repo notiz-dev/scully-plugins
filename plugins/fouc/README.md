@@ -23,3 +23,24 @@ exports.config = {
   routes: {}
 };
 ```
+
+If you want to use the plugin for a specific route do:
+
+```js
+require('./projects/scully-plugin-fouc');
+
+exports.config = {
+  ...
+  routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/blog'
+      },
+      postRenderers: ['fouc']
+    }
+  }
+  ...
+};
+
+```
