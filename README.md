@@ -1,27 +1,27 @@
-# scully-plugin-lazy-images
+# ScullyPlugins
 
-`scully-plugin-lazy-images` is a `postRenderer` plugin for [Scully](http://scully.io/) turning your images into lazy loading images using [lazyload](https://github.com/tuupola/lazyload). This will replace the `src` attribute with `data-src` and adds the class `lazyload` to the `img` tag.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
-A browser [native approach](https://web.dev/native-lazy-loading/) would be to use `loading="lazy"` for each `img` tag. When it has broader [browser support](https://caniuse.com/#feat=loading-lazy-attr) we will switch to the native approach.
+## Development server
 
-## 📦 Installation
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-To install this plugin with `npm` run
+## Code scaffolding
 
-```
-$ npm install @notiz/scully-plugin-lazy-images --save-dev
-```
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Usage
+## Build
 
-Add the plugin to the `defaultPostRenderers` in your `scully.config`:
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-```js
-require("@notiz/scully-plugin-lazy-images");
+## Running unit tests
 
-exports.config = {
-  projectRoot: "./src/app",
-  defaultPostRenderers: ["lazyImages"],
-  routes: {}
-};
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
