@@ -26,7 +26,7 @@ const rssPlugin = async (html, route) => {
     const item = {
       title: route.data.title,
       id: route.route,
-      link: route.route,
+      link: config.link + route.route,
       description: route.data.description,
       content: articleHTML,
       author: route.data.authors.map(a => ({ name: a })),
