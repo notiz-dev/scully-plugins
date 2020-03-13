@@ -12,7 +12,7 @@ const config = scullyConfig.rssConfig || {
 
 const feed = new RSS(config);
 const rssPlugin = async (html, route) => {
-  console.log(config, route);
+
   const item = {
     date: route.data.updatedAt || route.data.publishedAt,
     description: route.data.description || '',
