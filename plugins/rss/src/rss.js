@@ -16,9 +16,10 @@ const rssPlugin = async (html, route) => {
         feed.addCategory(cat);
       });
     }
-    const md = readFileSync(route.templateFile, 'utf8')
+    const mdString = readFileSync(route.templateFile, 'utf8')
       .toString()
-      .slice(nth_occurrence(md, '---', 2) + 3, md.length - 1);
+
+      const md = mdString.slice(nth_occurrence(mdString, '---', 2) + 3, mdString.length - 1);
 
     const item = {
       title: route.data.title,
