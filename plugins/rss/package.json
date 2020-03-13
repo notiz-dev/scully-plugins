@@ -1,6 +1,6 @@
 {
   "name": "@notiz/scully-plugin-rss",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "scully plugin generate a RSS Feed XML",
   "main": "src/index.js",
   "scripts": {
@@ -12,6 +12,6 @@
     "@scullyio/scully": "^0.0.75"
   },
   "dependencies": {
-    "rss": "^1.2.2"
+    "feed": "^4.1.0"
   }
 }
