@@ -16,12 +16,16 @@ const rssPlugin = async (html, route) => {
         feed.addCategory(cat);
       });
     }
+    const md = readFileSync(route.templateFile, 'utf8')
+      .toString()
+      .slice(nth_occurrence(md, '---', 2) + 3, md.length - 1);
+
     const item = {
       title: route.data.title,
       id: route.route,
       link: route.route,
       description: route.data.description,
-      // content: post.content,
+      content: md,
       author: route.data.authors.map(a => ({ name: a })),
       contributor: route.data.authors.map(a => ({
         name: a.toLowerCase().replace(' ', '-')
@@ -39,6 +43,28 @@ const rssPlugin = async (html, route) => {
 
   return html;
 };
+
+function nth_occurrence(text, searchString, nth) {
+  const firstIndex = text.indexOf(searchString);
+  const lengthUpToFirstIndex = firstIndex + 1;
+
+  if (nth === 1) {
+    return firstIndex;
+  } else {
+    const stringAfterFirstOccurrence = text.slice(lengthUpToFirstIndex);
+    const nextOccurrence = nth_occurrence(
+      stringAfterFirstOccurrence,
+      searchString,
+      nth - 1
+    );
+
+    if (nextOccurrence === -1) {
+      return -1;
+    } else {
+      return lengthUpToFirstIndex + nextOccurrence;
+    }
+  }
+}
 
 module.exports = {
   rssPlugin
