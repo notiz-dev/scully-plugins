@@ -23,8 +23,8 @@
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
     "@scullyio/init": "0.0.23",
-    "@scullyio/ng-lib": "latest",
-    "@scullyio/scully": "latest",
+    "@scullyio/ng-lib": "0.0.21",
+    "@scullyio/scully": "0.0.80",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
