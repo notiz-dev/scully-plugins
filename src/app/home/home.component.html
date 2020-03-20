@@ -1,7 +1,5 @@
-<p>home works!</p>
-
-<ul>
-  <li *ngFor="let page of links$ | async">
-    <a [routerLink]="[page.route]"> {{ page.route }}</a>
-  </li>
-</ul>
+<div class="w-full max-w-screen-xl mx-auto px-6">
+  <div>
+    <app-card *ngFor="let page of links$ | async" [page]="page"></app-card>
+  </div>
+</div>

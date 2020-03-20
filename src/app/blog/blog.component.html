@@ -1,13 +1,14 @@
-<h3>Scully blog content</h3>
-<hr />
+<div class="w-full max-w-screen-xl mx-auto px-6">
+  <h3>Scully blog content</h3>
+  <hr />
 
-<!-- This is where Scully will inject the static HTML -->
-<scully-content></scully-content>
+  <!-- This is where Scully will inject the static HTML -->
+  <scully-content></scully-content>
 
-<hr />
-<h4>End of blog content</h4>
+  <hr />
+  <h4>End of blog content</h4>
 
-<span *ngFor="let r of blogs$ | async">
-  <a [routerLink]="r.route">{{ r.route }}</a>
-  <br />
-</span>
+  <div>
+    <app-card *ngFor="let page of blogs$ | async" [page]="page"></app-card>
+  </div>
+</div>
