@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*{.ts,.scss}\"",
     "scully": "scully",
-    "scully:serve": "scully serve"
+    "scully:serve": "scully serve",
+    "scully:build": "ng build --prod && scully --nw"
   },
   "private": true,
   "dependencies": {
