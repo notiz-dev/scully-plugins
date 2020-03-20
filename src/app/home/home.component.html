@@ -1,0 +1,7 @@
+<p>home works!</p>
+
+<ul>
+  <li *ngFor="let page of links$ | async">
+    <a [routerLink]="[page.route]"> {{ page.route }}</a>
+  </li>
+</ul>

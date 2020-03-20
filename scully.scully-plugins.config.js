@@ -6,5 +6,12 @@ exports.config = {
   projectName: 'scully-plugins',
   defaultPostRenderers: ['lazyImages', 'fouc'],
   outDir: './dist/static',
-  routes: {}
+  routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/blog'
+      }
+    }
+  }
 };
