@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  mobileMenuToggled = false;
+  mobileMenuToggled = true;
+
   constructor() {}
 
   ngOnInit(): void {}
