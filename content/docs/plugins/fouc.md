@@ -2,7 +2,6 @@
 title: fouc
 description: fouc plugin
 publish: true
-tags: [fouc]
 ---
 
 ## scully-plugin-fouc

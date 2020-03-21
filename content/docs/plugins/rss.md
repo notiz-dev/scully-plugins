@@ -1,6 +1,5 @@
 ---
-title: medium-zoom
-description: medium-zoom plugin
+title: rss
+description: rss plugin
 publish: true
-tags: [medium-zoom]
 ---
