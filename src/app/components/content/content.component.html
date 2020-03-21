@@ -1,0 +1,12 @@
+<no-toolbar (mobileMenuToggled)="mobileMenuToggled = $event"></no-toolbar>
+<div class="w-full max-w-screen-xl mx-auto px-6">
+  <div class="lg:flex -mx-6">
+    <no-sidebar [mobileMenuToggled]="mobileMenuToggled"></no-sidebar>
+    <div
+      id="content"
+      class="min-h-screen w-full lg:static lg:max-h-full lg:overflow-visible lg:w-3/4 xl:w-4/5"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

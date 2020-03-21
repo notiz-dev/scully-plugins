@@ -1,0 +1,24 @@
+<div
+  id="sidebar"
+  class="fixed h-full w-full bg-dark light:bg-white lg:-mb-0 lg:static lg:h-auto lg:overflow-y-visible lg:border-b-0 lg:pt-0 lg:w-1/4 lg:block lg:border-0 xl:w-1/5"
+  [class.hidden]="!mobileMenuToggled"
+>
+  <div class="mb-8 px-2 py-1">
+    <h5
+      class="mb-3 lg:mb-2 text-gray-500 uppercase tracking-wide font-bold text-sm lg:text-sm"
+    >
+      Plugins
+    </h5>
+    <ul>
+      <li class="mb-3 lg:mb-1" *ngFor="let menu of menu$ | async">
+        <a
+          [routerLink]="menu.route"
+          routerLinkActive="active:bg-blue-500"
+          class="px-2 -mx-2 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px hover:text-gray-900 text-gray-600 font-medium"
+        >
+          {{ menu.title }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
