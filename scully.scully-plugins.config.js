@@ -5,7 +5,7 @@ require('./plugins/medium-zoom');
 exports.config = {
   projectRoot: './src',
   projectName: 'scully-plugins',
-  defaultPostRenderers: ['fouc'],
+  defaultPostRenderers: ['lazyImages', 'fouc'],
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
@@ -13,7 +13,7 @@ exports.config = {
       slug: {
         folder: './content/blog'
       },
-      postRenderers: ['fouc', 'mediumZoom']
+      postRenderers: ['lazyImages', 'fouc', 'mediumZoom']
     },
     '/docs/:slug': {
       type: 'contentFolder',
