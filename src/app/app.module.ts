@@ -10,7 +10,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ScullyLibModule.forRoot({ useTranferState: true, alwaysMonitor: true })
+    ScullyLibModule.forRoot({ useTransferState: true, alwaysMonitor: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
