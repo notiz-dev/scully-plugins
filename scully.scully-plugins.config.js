@@ -1,10 +1,24 @@
 require('./plugins/lazy-images');
 require('./plugins/fouc');
+require('./plugins/medium-zoom');
 
 exports.config = {
   projectRoot: './src',
   projectName: 'scully-plugins',
-  defaultPostRenderers: ['lazyImages', 'fouc'],
+  defaultPostRenderers: ['fouc'],
   outDir: './dist/static',
-  routes: {}
+  routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/blog'
+      },
+      postRenderers: ['fouc', 'mediumZoom']
+    },
+    '/docs/:slug': {
+      type: 'contentFolder',
+      slug: { folder: './content/docs' },
+      postRenderers: ['fouc']
+    }
+  }
 };

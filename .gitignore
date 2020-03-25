@@ -45,3 +45,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+src/assets/scully-routes.json
+
+# firebase
+.firebase/
+firebase-debug.log
