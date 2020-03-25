@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "dev": "npm run build && npm run scully",
     "format": "prettier --write \"src/**/*{.ts,.scss}\"",
     "scully": "scully",
     "scully:serve": "scully serve",
