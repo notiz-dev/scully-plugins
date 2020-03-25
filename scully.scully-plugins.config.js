@@ -14,6 +14,11 @@ exports.config = {
         folder: './content/blog'
       },
       postRenderers: ['fouc', 'mediumZoom']
+    },
+    '/docs/:slug': {
+      type: 'contentFolder',
+      slug: { folder: './content/docs' },
+      postRenderers: ['fouc']
     }
   }
 };
