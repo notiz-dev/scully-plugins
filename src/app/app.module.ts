@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { NizToolbarModule } from '@notiz/ngx-design';
+import { NizToolbarModule, NizFooterModule } from '@notiz/ngx-design';
 import { SeoModule } from './components/seo/seo.module';
 
 @NgModule({
@@ -14,6 +14,7 @@ import { SeoModule } from './components/seo/seo.module';
     AppRoutingModule,
     ScullyLibModule.forRoot({ useTranferState: true, alwaysMonitor: true }),
     NizToolbarModule,
+    NizFooterModule,
     SeoModule
   ],
   providers: [],

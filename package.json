@@ -24,7 +24,7 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
-    "@notiz/ngx-design": "0.0.1",
+    "@notiz/ngx-design": "0.0.2",
     "@scullyio/init": "0.0.23",
     "@scullyio/ng-lib": "0.0.21",
     "@scullyio/scully": "0.0.82",
