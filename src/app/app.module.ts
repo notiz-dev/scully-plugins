@@ -12,7 +12,7 @@ import { SeoModule } from './components/seo/seo.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ScullyLibModule.forRoot({ useTranferState: true, alwaysMonitor: true }),
+    ScullyLibModule.forRoot({ useTransferState: true, alwaysMonitor: true }),
     NizToolbarModule,
     NizFooterModule,
     SeoModule
