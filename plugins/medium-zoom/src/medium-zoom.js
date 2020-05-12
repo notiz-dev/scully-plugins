@@ -5,11 +5,6 @@ const mediumZoomPlugin = async (html, route) => {
   const doc = dom.window.document;
   var imgEl = doc.getElementsByTagName('img');
 
-  // can be added when loading="lazy" is supported in more browsers
-  //   for (var i = 0; i < imgEl.length; i++) {
-  //     imgEl[i].setAttribute('loading', 'lazy');
-  //   }
-
   for (var i = 0; i < imgEl.length; i++) {
     imgEl[i].setAttribute('data-zoomable', true);
   }
@@ -19,7 +14,7 @@ const mediumZoomPlugin = async (html, route) => {
     'https://cdn.jsdelivr.net/npm/medium-zoom@1.0.5/dist/medium-zoom.min.js';
   const s = doc.createElement('script');
   s.innerHTML = `
-    (() => { 
+    (() => {
       document.addEventListener('readystatechange',function(){
           if(document.readyState === 'complete'){
               setTimeout(() => {
@@ -36,5 +31,5 @@ const mediumZoomPlugin = async (html, route) => {
 };
 
 module.exports = {
-  mediumZoomPlugin
+  mediumZoomPlugin,
 };
