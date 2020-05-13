@@ -15,7 +15,6 @@ const lazyImagesPlugin = async (html, route) => {
 const makeImageLazyload = (doc) => {
   var imgEl = doc.getElementsByTagName('img');
 
-  console.log('makeImageLazyload');
   // can be added when loading="lazy" is supported in more browsers
   //   for (var i = 0; i < imgEl.length; i++) {
   //     imgEl[i].setAttribute('loading', 'lazy');
@@ -31,14 +30,12 @@ const makeImageLazyload = (doc) => {
 };
 
 const loadLazyload = (doc) => {
-  console.log('loadLazyload');
   const lazyload = doc.createElement('script');
   lazyload.src = 'https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js';
   return lazyload;
 };
 
 const createLazyImageScript = (doc) => {
-  console.log('createLazyImageScript');
   const script = doc.createElement('script');
   script.innerHTML = `
     window.addEventListener('AngularReady', lazyloadScript);
