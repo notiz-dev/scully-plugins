@@ -1,4 +1,6 @@
 const { JSDOM } = require('jsdom');
+const { readFileSync } = require('fs');
+
 
 const mediumZoomPlugin = async (html, route) => {
   const dom = new JSDOM(html);
@@ -11,6 +13,19 @@ const mediumZoomPlugin = async (html, route) => {
 
   return dom.serialize();
 };
+
+const getConfig = () => {
+  try{
+    const configFile = readFileSync(
+      `${process.cwd()}/medium-zoom.config.json`,
+      'utf8'
+    );
+    return configFile.toString();
+  }catch(err){
+    return '{}'
+  }
+
+}
 
 const makeImageMediumZoom = (doc) => {
   var imgEl = doc.getElementsByTagName('img');
@@ -29,10 +44,11 @@ const loadMediumZoom = (doc) => {
 
 const createMediumZoomScript = (doc) => {
   const script = doc.createElement('script');
+  const config = getConfig(); 
   script.innerHTML = `
     window.addEventListener('AngularReady', mediumZoomScript);
     function mediumZoomScript(){
-      mediumZoom('[data-zoomable]');
+      mediumZoom('[data-zoomable]',${config});
       window.removeEventListener('AngularReady', mediumZoomScript);
     }
     `;
