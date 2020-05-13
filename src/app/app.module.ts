@@ -1,10 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { NizFooterModule, NizToolbarModule } from '@notiz/ngx-design';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ScullyLibModule } from '@scullyio/ng-lib';
-import { NizToolbarModule, NizFooterModule } from '@notiz/ngx-design';
 import { SeoModule } from './components/seo/seo.module';
 
 @NgModule({
@@ -15,9 +14,9 @@ import { SeoModule } from './components/seo/seo.module';
     ScullyLibModule.forRoot({ useTransferState: true, alwaysMonitor: true }),
     NizToolbarModule,
     NizFooterModule,
-    SeoModule
+    SeoModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

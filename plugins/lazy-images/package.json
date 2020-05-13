@@ -24,7 +24,8 @@
   "homepage": "https://github.com/notiz-dev/scully-plugins/blob/master/plugins/lazy-images#readme",
   "keywords": [
     "scully",
-    "angular"
+    "angular",
+    "lazyload"
   ],
   "license": "MIT",
   "peerDependencies": {
