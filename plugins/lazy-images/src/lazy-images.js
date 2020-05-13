@@ -3,8 +3,19 @@ const { JSDOM } = require('jsdom');
 const lazyImagesPlugin = async (html, route) => {
   const dom = new JSDOM(html);
   const doc = dom.window.document;
+
+  makeImageLazyload(doc);
+
+  doc.body.append(loadLazyload(doc));
+  doc.body.append(createLazyImageScript(doc));
+
+  return dom.serialize();
+};
+
+const makeImageLazyload = (doc) => {
   var imgEl = doc.getElementsByTagName('img');
 
+  console.log('makeImageLazyload');
   // can be added when loading="lazy" is supported in more browsers
   //   for (var i = 0; i < imgEl.length; i++) {
   //     imgEl[i].setAttribute('loading', 'lazy');
@@ -17,27 +28,28 @@ const lazyImagesPlugin = async (html, route) => {
       imgEl[i].classList.add('lazyload');
     }
   }
+};
 
-  const lib = doc.createElement('script');
-  lib.src = 'https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js';
-  const s = doc.createElement('script');
-  s.innerHTML = `
-    (() => { 
-      document.addEventListener('readystatechange',function(){
-          if(document.readyState === 'complete'){
-              setTimeout(() => {
-                lazyload();
-              },0)
-          }
-      })
-    })();
+const loadLazyload = (doc) => {
+  console.log('loadLazyload');
+  const lazyload = doc.createElement('script');
+  lazyload.src = 'https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js';
+  return lazyload;
+};
+
+const createLazyImageScript = (doc) => {
+  console.log('createLazyImageScript');
+  const script = doc.createElement('script');
+  script.innerHTML = `
+    window.addEventListener('AngularReady', lazyloadScript);
+    function lazyloadScript(){
+      lazyload();
+      window.removeEventListener('AngularReady', lazyloadScript);
+    }
     `;
-  doc.body.append(lib);
-  doc.body.append(s);
-
-  return dom.serialize();
+  return script;
 };
 
 module.exports = {
-  lazyImagesPlugin
+  lazyImagesPlugin,
 };
