@@ -1,6 +1,6 @@
 {
   "name": "@notiz/scully-plugin-medium-zoom",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "scully plugin to add medium zoom to images",
   "main": "src/index.js",
   "author": "notiz.dev",
