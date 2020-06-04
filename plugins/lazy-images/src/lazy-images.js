@@ -30,6 +30,7 @@ const makeImageLazyload = (doc) => {
 };
 
 const loadLazyload = (doc) => {
+  
   const lazyload = doc.createElement('script');
   lazyload.src = 'https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js';
   return lazyload;
@@ -38,10 +39,9 @@ const loadLazyload = (doc) => {
 const createLazyImageScript = (doc) => {
   const script = doc.createElement('script');
   script.innerHTML = `
-    window.addEventListener('AngularReady', lazyloadScript);
+    window.addEventListener('AngularReady', lazyloadScript); // also gets triggered after navigation content load
     function lazyloadScript(){
       lazyload();
-      window.removeEventListener('AngularReady', lazyloadScript);
     }
     `;
   return script;

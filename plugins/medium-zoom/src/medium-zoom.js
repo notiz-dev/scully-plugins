@@ -49,7 +49,6 @@ const createMediumZoomScript = (doc) => {
     window.addEventListener('AngularReady', mediumZoomScript);
     function mediumZoomScript(){
       mediumZoom('[data-zoomable]',${config});
-      window.removeEventListener('AngularReady', mediumZoomScript);
     }
     `;
   return script;
