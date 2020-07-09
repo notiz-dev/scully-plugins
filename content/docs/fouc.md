@@ -1,7 +1,7 @@
 ---
 title: fouc
 description: fouc plugin
-publish: true
+published: true
 ---
 
 ## scully-plugin-fouc
@@ -26,7 +26,7 @@ require('@notiz/scully-plugin-fouc');
 exports.config = {
   projectRoot: './src/app',
   defaultPostRenderers: ['fouc'],
-  routes: {}
+  routes: {},
 };
 ```
 
