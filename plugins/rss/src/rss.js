@@ -1,5 +1,5 @@
 const Feed = require('feed').Feed;
-const showdown  = require('showdown');
+const showdown = require('showdown');
 const { writeFileSync, readFileSync } = require('fs');
 const { join } = require('path');
 let config;
@@ -13,14 +13,16 @@ const rssPlugin = async (html, route) => {
       );
       config = JSON.parse(configFile.toString());
       feed = new Feed(config);
-      config.categories.forEach(cat => {
+      config.categories.forEach((cat) => {
         feed.addCategory(cat);
       });
     }
-    const mdString = readFileSync(route.templateFile, 'utf8')
-      .toString()
+    const mdString = readFileSync(route.templateFile, 'utf8').toString();
 
-    const md = mdString.slice(nth_occurrence(mdString, '---', 2) + 3, mdString.length - 1);
+    const md = mdString.slice(
+      nth_occurrence(mdString, '---', 2) + 3,
+      mdString.length - 1
+    );
     const articleHTML = new showdown.Converter().makeHtml(md);
 
     const item = {
@@ -29,12 +31,12 @@ const rssPlugin = async (html, route) => {
       link: config.link + route.route,
       description: route.data.description,
       content: articleHTML,
-      author: route.data.authors.map(a => ({ name: a })),
-      contributor: route.data.authors.map(a => ({
-        name: a.toLowerCase().replace(' ', '-')
+      author: route.data.authors.map((a) => ({ name: a })),
+      contributor: route.data.authors.map((a) => ({
+        name: a.toLowerCase().replace(' ', '-'),
       })),
       date: route.data.updatedAt || route.data.publishedAt,
-      image: route.data.twitterBanner
+      image: route.data.twitterBanner,
     };
     feed.addItem(item);
     writeFileSync(join(config.outDir || '', 'feed.xml'), feed.rss2());
@@ -70,5 +72,5 @@ function nth_occurrence(text, searchString, nth) {
 }
 
 module.exports = {
-  rssPlugin
+  rssPlugin,
 };
