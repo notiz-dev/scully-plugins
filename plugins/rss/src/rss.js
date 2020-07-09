@@ -17,7 +17,7 @@ const rssPlugin = async (html, route) => {
         feed.addCategory(cat);
       });
     }
-    if (route.published !== false || route.data.published !== false) {
+    if (route.data.published) {
       const mdString = readFileSync(route.templateFile, 'utf8').toString();
 
       const md = mdString.slice(
