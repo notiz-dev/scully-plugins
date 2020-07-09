@@ -1,7 +1,7 @@
 ---
 title: lazy-image
 description: lazy-image plugin
-publish: true
+published: true
 ---
 
 ## scully-plugin-lazy-images
@@ -28,7 +28,7 @@ require('@notiz/scully-plugin-lazy-images');
 exports.config = {
   projectRoot: './src/app',
   defaultPostRenderers: ['lazyImages'],
-  routes: {}
+  routes: {},
 };
 ```
 
