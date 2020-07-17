@@ -2,6 +2,8 @@
 
 - [fouc](https://github.com/notiz-dev/scully-plugins/tree/master/plugins/fouc#readme)
 - [lazy-images](https://github.com/notiz-dev/scully-plugins/tree/master/plugins/lazy-images#readme)
+- [mediumZoom](https://github.com/notiz-dev/scully-plugins/tree/master/plugins/medium-zoom#readme)
+- [rss](https://github.com/notiz-dev/scully-plugins/tree/master/plugins/rss#readme)
 
 ## Tailwindcss
 
