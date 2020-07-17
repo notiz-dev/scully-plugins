@@ -5,14 +5,15 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "NODE_ENV=production ng build --prod",
+    "build:scully": "npm run build:prod && scully",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "npm run build && npm run scully",
     "format": "prettier --write \"src/**/*{.ts,.scss}\"",
     "scully": "scully",
-    "scully:serve": "scully serve",
-    "scully:build": "ng build --prod && scully --nw"
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {

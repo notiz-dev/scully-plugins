@@ -6,7 +6,7 @@ require('./plugins/rss');
 exports.config = {
   projectRoot: './src',
   projectName: 'scully-plugins',
-  defaultPostRenderers: ['fouc', 'seoHrefOptimise', 'rss'],
+  defaultPostRenderers: ['fouc', 'seoHrefOptimise'],
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
@@ -17,7 +17,6 @@ exports.config = {
       postRenderers: [
         'fouc',
         'seoHrefOptimise',
-        'rss',
         'lazyImages',
         'mediumZoom',
       ],

@@ -32,6 +32,8 @@
     "@scullyio/scully": ">=0.0.75"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "image-size": "^0.8.3",
     "jsdom": "^16.2.1"
   }
 }
