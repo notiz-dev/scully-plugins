@@ -1,5 +1,7 @@
 # scully-plugin-fouc
 
+[![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-fouc.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-fouc)
+
 `scully-plugin-fouc` is a `postRenderer` plugin for [Scully](http://scully.io/) to prevent **f**lash **o**f **u**nstyled **c**ontent.
 
 ## 📦 Installation
