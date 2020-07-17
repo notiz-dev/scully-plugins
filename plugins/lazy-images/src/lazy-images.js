@@ -12,7 +12,7 @@ const lazyImagesPlugin = async (html, route) => {
     doc.body.append(loadLazyload(doc));
     doc.body.append(createLazyImageScript(doc));
   } catch (err) {
-    console.log(err);
+    console.warn('error making image lazy - skipping...');
   }
 
   return dom.serialize();
@@ -27,7 +27,6 @@ const makeImageLazyload = async (doc, route) => {
   //   }
   for (var i = 0; i < imgEl.length; i++) {
     const src = imgEl[i].getAttribute('src');
-    console.log('make image lazyload', src, route);
     let dimensions;
     if (src) {
       if (src.startsWith('http')) {
