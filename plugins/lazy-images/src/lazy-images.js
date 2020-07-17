@@ -7,13 +7,10 @@ const path = require('path');
 const lazyImagesPlugin = async (html, route) => {
   const dom = new JSDOM(html);
   const doc = dom.window.document;
-  try {
-    await makeImageLazyload(doc, route);
-    doc.body.append(loadLazyload(doc));
-    doc.body.append(createLazyImageScript(doc));
-  } catch (err) {
-    console.warn('error making image lazy - skipping...');
-  }
+
+  await makeImageLazyload(doc, route);
+  doc.body.append(loadLazyload(doc));
+  doc.body.append(createLazyImageScript(doc));
 
   return dom.serialize();
 };
@@ -30,12 +27,14 @@ const makeImageLazyload = async (doc, route) => {
     let dimensions;
     if (src) {
       if (src.startsWith('http')) {
-        const image = await get(src, {
-          responseType: 'arraybuffer',
-        });
-        dimensions = sizeOf(image.data);
-        imgEl[i].setAttribute('height', dimensions.height);
-        imgEl[i].setAttribute('width', dimensions.width);
+        try {
+          const image = await get(src, {
+            responseType: 'arraybuffer',
+          });
+          dimensions = sizeOf(image.data);
+          imgEl[i].setAttribute('height', dimensions.height);
+          imgEl[i].setAttribute('width', dimensions.width);
+        } catch (err) {}
       } else {
         dimensions = sizeOf(path.join(scullyConfig.outDir, src));
         imgEl[i].setAttribute('height', dimensions.height);
