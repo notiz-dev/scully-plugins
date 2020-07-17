@@ -24,7 +24,7 @@ const makeImageLazyload = async (doc, route) => {
   //   }
   for (var i = 0; i < imgEl.length; i++) {
     const src = imgEl[i].getAttribute('src');
-    let dimensions;
+    let dimensions = { width: 0, height: 0 };
     if (src) {
       if (src.startsWith('http')) {
         try {
