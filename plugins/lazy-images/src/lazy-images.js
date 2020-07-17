@@ -25,23 +25,25 @@ const makeImageLazyload = async (doc, route) => {
   //   }
 
   for (var i = 0; i < imgEl.length; i++) {
-    if (imgEl[i].getAttribute('src')) {
-      if (imgEl[i].getAttribute('src').startsWith('http')) {
-        const image = await get(imgEl[i].getAttribute('src'), {
+    const src = imgEl[i].getAttribute('src');
+    let dimensions;
+    if (src) {
+      if (src.startsWith('http')) {
+        const image = await get(src, {
           responseType: 'arraybuffer',
         });
-        const dimensions = sizeOf(image.data);
+        dimensions = sizeOf(image.data);
         imgEl[i].setAttribute('height', dimensions.height);
         imgEl[i].setAttribute('width', dimensions.width);
       } else {
-        const dimensions = sizeOf(
-          path.join(scullyConfig.outDir, imgEl[i].getAttribute('src'))
+        dimensions = sizeOf(
+          path.join(scullyConfig.outDir, src)
         );
         imgEl[i].setAttribute('height', dimensions.height);
         imgEl[i].setAttribute('width', dimensions.width);
       }
-      imgEl[i].setAttribute('data-src', imgEl[i].getAttribute('src'));
-      imgEl[i].removeAttribute('src');
+      imgEl[i].setAttribute('data-src', src);
+      imgEl[i].setAttribute('src', `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${dimensions.width} ${dimensions.height}'%3E%3C/svg%3E`);
       imgEl[i].classList.add('lazyload');
     }
   }
