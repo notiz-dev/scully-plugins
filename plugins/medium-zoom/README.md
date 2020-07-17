@@ -1,5 +1,7 @@
 # scully-plugin-medium-zoom
 
+[![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-medium-zoom.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-medium-zoom)
+
 `scully-plugin-medium-zoom` is a `postRenderer` plugin for [Scully](http://scully.io/) adding a medium style zoom to your images using [medium-zoom](https://github.com/francoischalifour/medium-zoom). This plugin adds `data-zoomable` attribute to each `img` tag in your route.
 
 ## 📦 Installation

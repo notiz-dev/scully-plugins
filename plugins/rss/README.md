@@ -1,5 +1,7 @@
 # scully-plugin-rss
 
+[![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-rss.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-rss)
+
 `scully-plugin-rss` is a `postRenderer` plugin for [Scully](http://scully.io/) adding creating a rss feed from your content using [feed](https://github.com/jpmonette/feed) and [showdown](https://github.com/showdownjs/showdown).
 
 The rss feed is available at:

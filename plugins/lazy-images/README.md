@@ -1,5 +1,7 @@
 # scully-plugin-lazy-images
 
+[![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-lazy-images.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-lazy-images)
+
 `scully-plugin-lazy-images` is a `postRenderer` plugin for [Scully](http://scully.io/) turning your images into lazy loading images using [lazyload](https://github.com/tuupola/lazyload). This will replace the `src` attribute with `data-src` and adds the class `lazyload` to the `img` tag.
 
 A browser [native approach](https://web.dev/native-lazy-loading/) would be to use `loading="lazy"` for each `img` tag. When it has broader [browser support](https://caniuse.com/#feat=loading-lazy-attr) we will switch to the native approach.
