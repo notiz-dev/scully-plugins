@@ -7,11 +7,13 @@ const path = require('path');
 const lazyImagesPlugin = async (html, route) => {
   const dom = new JSDOM(html);
   const doc = dom.window.document;
-
-  await makeImageLazyload(doc, route);
-
-  doc.body.append(loadLazyload(doc));
-  doc.body.append(createLazyImageScript(doc));
+  try {
+    await makeImageLazyload(doc, route);
+    doc.body.append(loadLazyload(doc));
+    doc.body.append(createLazyImageScript(doc));
+  } catch (err) {
+    console.log(err);
+  }
 
   return dom.serialize();
 };
@@ -23,9 +25,9 @@ const makeImageLazyload = async (doc, route) => {
   //   for (var i = 0; i < imgEl.length; i++) {
   //     imgEl[i].setAttribute('loading', 'lazy');
   //   }
-
   for (var i = 0; i < imgEl.length; i++) {
     const src = imgEl[i].getAttribute('src');
+    console.log('make image lazyload', src, route);
     let dimensions;
     if (src) {
       if (src.startsWith('http')) {
@@ -36,14 +38,15 @@ const makeImageLazyload = async (doc, route) => {
         imgEl[i].setAttribute('height', dimensions.height);
         imgEl[i].setAttribute('width', dimensions.width);
       } else {
-        dimensions = sizeOf(
-          path.join(scullyConfig.outDir, src)
-        );
+        dimensions = sizeOf(path.join(scullyConfig.outDir, src));
         imgEl[i].setAttribute('height', dimensions.height);
         imgEl[i].setAttribute('width', dimensions.width);
       }
       imgEl[i].setAttribute('data-src', src);
-      imgEl[i].setAttribute('src', `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${dimensions.width} ${dimensions.height}'%3E%3C/svg%3E`);
+      imgEl[i].setAttribute(
+        'src',
+        `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${dimensions.width} ${dimensions.height}'%3E%3C/svg%3E`
+      );
       imgEl[i].classList.add('lazyload');
     }
   }
