@@ -5,13 +5,17 @@ const { join } = require('path');
 
 const configFile = readFileSync(`${process.cwd()}/rss.config.json`, 'utf8');
 const config = JSON.parse(configFile.toString());
+const blogPostRouteSlug = config.blogPostRouteSlug || '/blog';
 const feed = new Feed(config);
 config.categories.forEach((cat) => {
   feed.addCategory(cat);
 });
 
 const rssPlugin = (routes) => {
-  const blogPosts = routes.filter((r) => r && r.data && r.data.published);
+  const blogPosts = routes.filter(
+    (r) =>
+      r && r.data && r.data.published && r.route.includes(blogPostRouteSlug)
+  );
 
   if (config.newestPostsFirst) {
     blogPosts.sort((a, b) => {
@@ -22,6 +26,8 @@ const rssPlugin = (routes) => {
       return a.data.publishedAt > b.data.publishedAt ? 1 : -1;
     });
   }
+
+  blogPosts.forEach((b) => console.log(b));
 
   blogPosts.forEach((r) => {
     const item = createFeedItemFromRoute(r);
@@ -50,10 +56,14 @@ const createFeedItemFromRoute = (route) => {
         link: config.link + route.route,
         description: route.data.description,
         content: articleHTML,
-        author: route.data.authors.map((a) => ({ name: a })),
-        contributor: route.data.authors.map((a) => ({
-          name: a.toLowerCase().replace(' ', '-'),
-        })),
+        author: route.data.authors
+          ? route.data.authors.map((a) => ({ name: a }))
+          : [],
+        contributor: route.data.authors
+          ? route.data.authors.map((a) => ({
+              name: a.toLowerCase().replace(' ', '-'),
+            }))
+          : [],
         date: route.data.updatedAt || route.data.publishedAt,
         image: route.data.twitterBanner,
       };

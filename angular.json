@@ -73,7 +73,7 @@
           },
           "configurations": {
             "production": {
-            "extraWebpackConfig": "webpack.config.js",
+              "extraWebpackConfig": "webpack.config.js",
               "browserTarget": "scully-plugins:build:production"
             }
           }
@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "scully-plugins"
+  "defaultProject": "scully-plugins",
+  "cli": {
+    "analytics": false
+  }
 }

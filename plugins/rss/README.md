@@ -20,7 +20,7 @@ $ npm install @notiz/scully-plugin-rss --save-dev
 
 ## Usage
 
-Add the plugin to the `defaultPostRenderers` in your `scully.config`:
+Require the plugin in the Scully config file:
 
 ```js
 require('@notiz/scully-plugin-rss');
@@ -32,25 +32,7 @@ exports.config = {
 };
 ```
 
-If you want to use the plugin for a specific route do:
-
-```js
-require('@notiz/scully-plugin-rss');
-
-exports.config = {
-  ...
-  routes: {
-    '/blog/:slug': {
-      type: 'contentFolder',
-      slug: {
-        folder: './content/blog'
-      },
-      postRenderers: ['rss']
-    }
-  }
-  ...
-};
-```
+It will run on only routes that include `/blog` unless specified otherwise in the `rss.config.json` file.
 
 Create a `rss.config.json` in your root with the following properties:
 
@@ -70,7 +52,8 @@ Create a `rss.config.json` in your root with the following properties:
     "atom": "https://your-domain.com/feed.atom"
   },
   "outDir": "./dist/static",
-  "categories": ["Categories", "of", "your", "choice"]
+  "categories": ["Categories", "of", "your", "choice"],
+  "blogPostRouteSlug": "/blog"
 }
 ```
 

@@ -22,7 +22,7 @@ export const config: ScullyConfig = {
       slug: {
         folder: './content/blog',
       },
-      postRenderers: [...defaultPostRenderers, 'rss'],
+      postRenderers: [...defaultPostRenderers],
     },
     '/docs/:slug': {
       type: 'contentFolder',
