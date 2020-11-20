@@ -11,7 +11,7 @@ config.categories.forEach((cat) => {
 });
 
 const rssPlugin = (routes) => {
-  const blogPosts = routes.filter((r) => r?.data?.published);
+  const blogPosts = routes.filter((r) => r && r.data && r.data.published);
 
   if (config.newestPostsFirst) {
     blogPosts.sort((a, b) => {
