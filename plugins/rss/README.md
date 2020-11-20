@@ -32,7 +32,7 @@ exports.config = {
 };
 ```
 
-It will run on only routes that include `/blog` unless specified otherwise in the `rss.config.json` file.
+It will run on only routes that include `/blog` unless specified otherwise in the `rss.config.json` file. The order of the posts will be oldest first unless the `newestPostsFirst` option is set in the config.
 
 Create a `rss.config.json` in your root with the following properties:
 
@@ -53,7 +53,8 @@ Create a `rss.config.json` in your root with the following properties:
   },
   "outDir": "./dist/static",
   "categories": ["Categories", "of", "your", "choice"],
-  "blogPostRouteSlug": "/blog"
+  "blogPostRouteSlug": "/blog",
+  "newestPostsFirst": true
 }
 ```
 
