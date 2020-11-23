@@ -53,3 +53,6 @@ src/assets/scully-routes.json
 firebase-debug.log
 
 scully.scully-plugins.config.js
+
+scully.log
+.scully

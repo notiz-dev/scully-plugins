@@ -26,9 +26,9 @@
     "@angular/platform-browser-dynamic": "10.0.4",
     "@angular/router": "10.0.4",
     "@notiz/ngx-design": "0.0.26",
-    "@scullyio/init": "1.0.0-beta.0",
-    "@scullyio/ng-lib": "1.0.0-beta.0",
-    "@scullyio/scully": "1.0.0-beta.0",
+    "@scullyio/init": "1.0.1",
+    "@scullyio/ng-lib": "1.0.0",
+    "@scullyio/scully": "1.0.4",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
     "zone.js": "0.10.3"
