@@ -13,6 +13,7 @@ config.categories.forEach((cat) => {
 });
 
 const rssPlugin = (routes) => {
+  console.log('Started @notiz/scully-plugin-rss');
   const blogPosts = routes.filter(
     (r) =>
       r && r.data && r.data.published && r.route.includes(blogPostRouteSlug)
@@ -28,13 +29,24 @@ const rssPlugin = (routes) => {
     });
   }
 
+  console.log(
+    `Generating RSS Feed for ${blogPosts.length} blog ${
+      blogPosts.length === 1 ? 'post' : 'posts'
+    }`
+  );
+
   blogPosts.forEach((r) => {
     const item = createFeedItemFromRoute(r);
     feed.addItem(item);
   });
   writeFileSync(join(config.outDir || '', 'feed.xml'), feed.rss2());
+  console.log(`✅ Created ${join(config.outDir || '', 'feed.xml')}`);
   writeFileSync(join(config.outDir || '', 'feed.atom'), feed.atom1());
+  console.log(`✅ Created ${join(config.outDir || '', 'feed.atom')}`);
   writeFileSync(join(config.outDir || '', 'feed.json'), feed.json1());
+  console.log(`✅ Created ${join(config.outDir || '', 'feed.json')}`);
+
+  console.log('Finished @notiz/scully-plugin-rss');
 };
 
 const createFeedItemFromRoute = (route) => {
