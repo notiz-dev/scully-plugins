@@ -9,6 +9,6 @@ This repository has the following available plugins for [scully](https://github.
 | [mediumZoom](https://github.com/notiz-dev/scully-plugins/tree/master/plugins/medium-zoom#readme)  | [![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-medium-zoom.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-medium-zoom) |
 | [rss](https://github.com/notiz-dev/scully-plugins/tree/master/plugins/rss#readme)                 | [![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-rss.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-rss)                 |
 
-## Tailwindcss
+## Jamstack
 
-How to configure [Angular with Tailwindcss](https://notiz.dev/blog/angular-10-with-tailwindcss)
+Use those plugins for your next [Jamstack: Angular + Scully + Tailwind CSS](https://notiz.dev/blog/jamstack-angular-scully-tailwind-css) application.
