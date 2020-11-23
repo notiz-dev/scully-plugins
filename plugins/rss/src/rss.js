@@ -8,12 +8,16 @@ const configFile = readFileSync(`${process.cwd()}/rss.config.json`, 'utf8');
 const config = JSON.parse(configFile.toString());
 const blogPostRouteSlug = config.blogPostRouteSlug || '/blog';
 const feed = new Feed(config);
+
+const { log, yellow } = require('@scullyio/scully');
+
 config.categories.forEach((cat) => {
   feed.addCategory(cat);
 });
 
 const rssPlugin = (routes) => {
-  console.log('Started @notiz/scully-plugin-rss');
+  log('Started @notiz/scully-plugin-rss');
+
   const blogPosts = routes.filter(
     (r) =>
       r && r.data && r.data.published && r.route.includes(blogPostRouteSlug)
@@ -29,8 +33,8 @@ const rssPlugin = (routes) => {
     });
   }
 
-  console.log(
-    `Generating RSS Feed for ${blogPosts.length} blog ${
+  log(
+    `Generating RSS Feed for ${yellow(blogPosts.length)} published blog ${
       blogPosts.length === 1 ? 'post' : 'posts'
     }`
   );
@@ -40,13 +44,13 @@ const rssPlugin = (routes) => {
     feed.addItem(item);
   });
   writeFileSync(join(config.outDir || '', 'feed.xml'), feed.rss2());
-  console.log(`✅ Created ${join(config.outDir || '', 'feed.xml')}`);
+  log(`✅ Created ${yellow(config.outDir + '/feed.xml')}`);
   writeFileSync(join(config.outDir || '', 'feed.atom'), feed.atom1());
-  console.log(`✅ Created ${join(config.outDir || '', 'feed.atom')}`);
+  log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
   writeFileSync(join(config.outDir || '', 'feed.json'), feed.json1());
-  console.log(`✅ Created ${join(config.outDir || '', 'feed.json')}`);
+  log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
 
-  console.log('Finished @notiz/scully-plugin-rss');
+  log('Finished @notiz/scully-plugin-rss');
 };
 
 const createFeedItemFromRoute = (route) => {
