@@ -1,3 +1,4 @@
+const dayjs = require('dayjs');
 const Feed = require('feed').Feed;
 const showdown = require('showdown');
 const { writeFileSync, readFileSync } = require('fs');
@@ -26,8 +27,6 @@ const rssPlugin = (routes) => {
       return a.data.publishedAt > b.data.publishedAt ? 1 : -1;
     });
   }
-
-  blogPosts.forEach((b) => console.log(b));
 
   blogPosts.forEach((r) => {
     const item = createFeedItemFromRoute(r);
@@ -64,7 +63,9 @@ const createFeedItemFromRoute = (route) => {
               name: a.toLowerCase().replace(' ', '-'),
             }))
           : [],
-        date: route.data.updatedAt || route.data.publishedAt,
+        date: route.data.updatedAt
+          ? dayjs(route.data.updatedAt).toDate()
+          : dayjs(route.data.publishedAt).toDate(),
         image: route.data.twitterBanner,
       };
     }

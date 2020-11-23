@@ -29,6 +29,7 @@
     "@scullyio/init": "1.0.0-beta.0",
     "@scullyio/ng-lib": "1.0.0-beta.0",
     "@scullyio/scully": "1.0.0-beta.0",
+    "dayjs": "^1.9.6",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
     "zone.js": "0.10.3"

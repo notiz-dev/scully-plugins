@@ -12,6 +12,10 @@
     {
       "name": "Marc Stammerjohann",
       "url": "https://notiz.dev/authors/marc-stammerjohann"
+    },
+    {
+      "name": "Preston Lamb",
+      "url": "https://www.prestonlamb.com"
     }
   ],
   "repository": {
@@ -33,6 +37,7 @@
   },
   "dependencies": {
     "feed": "^4.1.0",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "dayjs": "^1.9.6"
   }
 }
