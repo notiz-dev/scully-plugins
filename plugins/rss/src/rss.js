@@ -9,7 +9,7 @@ const config = JSON.parse(configFile.toString());
 const blogPostRouteSlug = config.blogPostRouteSlug || '/blog';
 const feed = new Feed(config);
 
-const { log, yellow } = require('@scullyio/scully');
+const { log, logError, yellow } = require('@scullyio/scully');
 
 config.categories.forEach((cat) => {
   feed.addCategory(cat);
@@ -43,12 +43,17 @@ const rssPlugin = (routes) => {
     const item = createFeedItemFromRoute(r);
     feed.addItem(item);
   });
-  writeFileSync(join(config.outDir || '', 'feed.xml'), feed.rss2());
-  log(`✅ Created ${yellow(config.outDir + '/feed.xml')}`);
-  writeFileSync(join(config.outDir || '', 'feed.atom'), feed.atom1());
-  log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
-  writeFileSync(join(config.outDir || '', 'feed.json'), feed.json1());
-  log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
+  try {
+    writeFileSync(join(config.outDir || '', 'feed.xml'), feed.rss2());
+    log(`✅ Created ${yellow(config.outDir + '/feed.xml')}`);
+    writeFileSync(join(config.outDir || '', 'feed.atom'), feed.atom1());
+    log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
+    writeFileSync(join(config.outDir || '', 'feed.json'), feed.json1());
+    log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
+  } catch (error) {
+    logError('❌ Failed to create RSS feed. Error:', error);
+    throw error;
+  }
 
   log('Finished @notiz/scully-plugin-rss');
 };
@@ -86,7 +91,7 @@ const createFeedItemFromRoute = (route) => {
       };
     }
   } catch (err) {
-    console.error(err);
+    logError(`Error during feed item creation ${route.data.route}`, err);
   }
 
   return item;
