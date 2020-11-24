@@ -36,7 +36,7 @@
     "@scullyio/scully": "^1.0.5"
   },
   "dependencies": {
-    "feed": "^4.1.0",
+    "feed": "^4.2.1",
     "showdown": "^1.9.1",
     "dayjs": "^1.9.6"
   }
