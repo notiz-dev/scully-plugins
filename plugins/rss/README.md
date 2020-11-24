@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-rss.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-rss)
 
-`scully-plugin-rss` is a `postRenderer` plugin for [Scully](http://scully.io/) adding creating a rss feed from your content using [feed](https://github.com/jpmonette/feed) and [showdown](https://github.com/showdownjs/showdown).
+`scully-plugin-rss` is a `routeDiscoveryDone` plugin for [Scully](http://scully.io/). A RSS Feed is created from your content using [feed](https://github.com/jpmonette/feed) and [showdown](https://github.com/showdownjs/showdown).
 
 The rss feed is available at:
 
@@ -10,12 +10,14 @@ The rss feed is available at:
 - your-domain.de/feed.atom
 - your-domain.de/feed.xml
 
+> **Breaking Change** introduced in Version 1.0.0 with changing the plugin type from `render` to `routeDiscoveryDone`. This has the major benefit of only generating the RSS Feed once per run instead of after each page render.
+
 ## 📦 Installation
 
-To install this plugin with `npm` run
+Install the RSS Feed plugin using the command
 
-```
-$ npm install @notiz/scully-plugin-rss --save-dev
+```bash
+npm install @notiz/scully-plugin-rss --save-dev
 ```
 
 ## Usage
@@ -71,7 +73,7 @@ Each RSS Feed item attributes are currently assigned by the following scully rou
 | `contributor` | `authors`                     |
 | `date`        | `updatedAt` \|  `publishedAt` |
 
-Your content should have the following frontmatter in your scully content:
+Your content should have the following front matter in your scully content:
 
 ```
 ---

@@ -1,6 +1,6 @@
 # Scully Plugins
 
-This repository has the following available plugins for [scully](https://github.com/scullyio/scully).
+This repository has the following available plugins for [Scully](https://github.com/scullyio/scully).
 
 | Plugin                                                                                            | npm                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
