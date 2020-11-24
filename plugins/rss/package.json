@@ -33,7 +33,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@scullyio/scully": ">=0.0.75"
+    "@scullyio/scully": "^1.0.5"
   },
   "dependencies": {
     "feed": "^4.1.0",
