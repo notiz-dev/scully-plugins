@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "feed": "^4.2.1",
-    "showdown": "^1.9.1",
-    "dayjs": "^1.9.6"
+    "showdown": "^1.9.1"
   }
 }

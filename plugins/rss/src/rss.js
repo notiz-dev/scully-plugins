@@ -1,4 +1,3 @@
-const dayjs = require('dayjs');
 const Feed = require('feed').Feed;
 const showdown = require('showdown');
 const { writeFileSync, readFileSync } = require('fs');
@@ -85,8 +84,8 @@ const createFeedItemFromRoute = (route) => {
             }))
           : [],
         date: route.data.updatedAt
-          ? dayjs(route.data.updatedAt).toDate()
-          : dayjs(route.data.publishedAt).toDate(),
+          ? route.data.updatedAt
+          : route.data.publishedAt,
         image: route.data.twitterBanner,
       };
     }
