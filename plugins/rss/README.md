@@ -24,15 +24,17 @@ npm install @notiz/scully-plugin-rss --save-dev
 
 ## Usage
 
-Require the plugin in the Scully config file:
+Import the plugin in the Scully config file `scully.app-name.config.ts`:
 
-```js
-require('@notiz/scully-plugin-rss');
+```ts
+import { ScullyConfig } from '@scullyio/scully';
+import '@notiz/scully-plugin-rss';
 
-exports.config = {
+export const config: ScullyConfig = {
   projectRoot: './src/app',
-  defaultPostRenderers: ['rss'],
-  routes: {},
+  routes: {
+    ...
+  },
 };
 ```
 
