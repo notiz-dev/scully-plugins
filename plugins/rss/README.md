@@ -20,6 +20,8 @@ Install the RSS Feed plugin using the command
 npm install @notiz/scully-plugin-rss --save-dev
 ```
 
+> **Note**: `routeDiscoveryDone` plugin requires `@scullyio/scully` in version ^1.0.5 or above to [correctly parse](https://github.com/scullyio/scully/pull/1140) date values from markdown front matter.
+
 ## Usage
 
 Require the plugin in the Scully config file:
