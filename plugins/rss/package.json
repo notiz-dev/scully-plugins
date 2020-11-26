@@ -12,6 +12,10 @@
     {
       "name": "Marc Stammerjohann",
       "url": "https://notiz.dev/authors/marc-stammerjohann"
+    },
+    {
+      "name": "Preston Lamb",
+      "url": "https://www.prestonlamb.com"
     }
   ],
   "repository": {
@@ -29,10 +33,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@scullyio/scully": ">=0.0.75"
+    "@scullyio/scully": "^1.0.5"
   },
   "dependencies": {
-    "feed": "^4.1.0",
+    "feed": "^4.2.1",
     "showdown": "^1.9.1"
   }
 }

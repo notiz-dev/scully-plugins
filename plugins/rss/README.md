@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40notiz%2Fscully-plugin-rss.svg)](https://www.npmjs.com/package/@notiz/scully-plugin-rss)
 
-`scully-plugin-rss` is a `postRenderer` plugin for [Scully](http://scully.io/) adding creating a rss feed from your content using [feed](https://github.com/jpmonette/feed) and [showdown](https://github.com/showdownjs/showdown).
+`scully-plugin-rss` is a `routeDiscoveryDone` plugin for [Scully](http://scully.io/). A RSS Feed is created from your content using [feed](https://github.com/jpmonette/feed) and [showdown](https://github.com/showdownjs/showdown).
 
 The rss feed is available at:
 
@@ -10,17 +10,21 @@ The rss feed is available at:
 - your-domain.de/feed.atom
 - your-domain.de/feed.xml
 
+> **Breaking Change** introduced in Version 1.0.0 with changing the plugin type from `render` to `routeDiscoveryDone`. This has the major benefit of only generating the RSS Feed once per run instead of after each page render.
+
 ## 📦 Installation
 
-To install this plugin with `npm` run
+Install the RSS Feed plugin using the command
 
+```bash
+npm install @notiz/scully-plugin-rss --save-dev
 ```
-$ npm install @notiz/scully-plugin-rss --save-dev
-```
+
+> **Note**: `routeDiscoveryDone` plugin requires `@scullyio/scully` in version ^1.0.5 or above to [correctly parse](https://github.com/scullyio/scully/pull/1140) date values from markdown front matter.
 
 ## Usage
 
-Add the plugin to the `defaultPostRenderers` in your `scully.config`:
+Require the plugin in the Scully config file:
 
 ```js
 require('@notiz/scully-plugin-rss');
@@ -32,25 +36,7 @@ exports.config = {
 };
 ```
 
-If you want to use the plugin for a specific route do:
-
-```js
-require('@notiz/scully-plugin-rss');
-
-exports.config = {
-  ...
-  routes: {
-    '/blog/:slug': {
-      type: 'contentFolder',
-      slug: {
-        folder: './content/blog'
-      },
-      postRenderers: ['rss']
-    }
-  }
-  ...
-};
-```
+It will run on only routes that include `/blog` unless specified otherwise in the `rss.config.json` file. The order of the posts will be oldest first unless the `newestPostsFirst` option is set in the config.
 
 Create a `rss.config.json` in your root with the following properties:
 
@@ -70,7 +56,9 @@ Create a `rss.config.json` in your root with the following properties:
     "atom": "https://your-domain.com/feed.atom"
   },
   "outDir": "./dist/static",
-  "categories": ["Categories", "of", "your", "choice"]
+  "categories": ["Categories", "of", "your", "choice"],
+  "blogPostRouteSlug": "/blog",
+  "newestPostsFirst": true
 }
 ```
 
@@ -87,7 +75,7 @@ Each RSS Feed item attributes are currently assigned by the following scully rou
 | `contributor` | `authors`                     |
 | `date`        | `updatedAt` \|  `publishedAt` |
 
-Your content should have the following frontmatter in your scully content:
+Your content should have the following front matter in your scully content:
 
 ```
 ---

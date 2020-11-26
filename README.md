@@ -2,7 +2,7 @@
 
 ![Scully Build CI](https://github.com/notiz-dev/scully-plugins/workflows/Node.js%20CI/badge.svg)
 
-This repository has the following available plugins for [scully](https://github.com/scullyio/scully).
+This repository has the following available plugins for [Scully](https://github.com/scullyio/scully).
 
 | Plugin                                                                                            | npm                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

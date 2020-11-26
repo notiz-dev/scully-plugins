@@ -118,5 +118,8 @@
       }
     }
   },
-  "defaultProject": "scully-plugins"
+  "defaultProject": "scully-plugins",
+  "cli": {
+    "analytics": false
+  }
 }
