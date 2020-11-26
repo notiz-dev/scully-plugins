@@ -2,13 +2,12 @@ const Feed = require('feed').Feed;
 const showdown = require('showdown');
 const { writeFileSync, readFileSync } = require('fs');
 const { join } = require('path');
+const { log, logError, yellow } = require('@scullyio/scully');
 
 const configFile = readFileSync(`${process.cwd()}/rss.config.json`, 'utf8');
 const config = JSON.parse(configFile.toString());
 const blogPostRouteSlug = config.blogPostRouteSlug || '/blog';
 const feed = new Feed(config);
-
-const { log, logError, yellow } = require('@scullyio/scully');
 
 config.categories.forEach((cat) => {
   feed.addCategory(cat);
