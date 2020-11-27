@@ -47,7 +47,7 @@ const rssPlugin = (routes) => {
     writeFileSync(join(config.outDir || '', 'feed.atom'), feed.atom1());
     log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
     writeFileSync(join(config.outDir || '', 'feed.json'), feed.json1());
-    log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
+    log(`✅ Created ${yellow(config.outDir + '/feed.json')}`);
   } catch (error) {
     logError('❌ Failed to create RSS feed. Error:', error);
     throw error;
