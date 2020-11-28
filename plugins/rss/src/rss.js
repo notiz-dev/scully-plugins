@@ -7,6 +7,7 @@ const { log, logError, yellow } = require('@scullyio/scully');
 const configFile = readFileSync(`${process.cwd()}/rss.config.json`, 'utf8');
 const config = JSON.parse(configFile.toString());
 const blogPostRouteSlug = config.blogPostRouteSlug || '/blog';
+const filename = config.filename || 'feed';
 const feed = new Feed(config);
 
 config.categories.forEach((cat) => {
@@ -42,12 +43,12 @@ const rssPlugin = (routes) => {
     feed.addItem(item);
   });
   try {
-    writeFileSync(join(config.outDir || '', 'feed.xml'), feed.rss2());
-    log(`✅ Created ${yellow(config.outDir + '/feed.xml')}`);
-    writeFileSync(join(config.outDir || '', 'feed.atom'), feed.atom1());
-    log(`✅ Created ${yellow(config.outDir + '/feed.atom')}`);
-    writeFileSync(join(config.outDir || '', 'feed.json'), feed.json1());
-    log(`✅ Created ${yellow(config.outDir + '/feed.json')}`);
+    writeFileSync(join(config.outDir || '', `${filename}.xml`), feed.rss2());
+    log(`✅ Created ${yellow(config.outDir + `/${filename}.xml`)}`);
+    writeFileSync(join(config.outDir || '', `${filename}.atom`), feed.atom1());
+    log(`✅ Created ${yellow(config.outDir + `/${filename}.atom`)}`);
+    writeFileSync(join(config.outDir || '', `${filename}.json`), feed.json1());
+    log(`✅ Created ${yellow(config.outDir + `/${filename}.json`)}`);
   } catch (error) {
     logError('❌ Failed to create RSS feed. Error:', error);
     throw error;

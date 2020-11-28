@@ -8,9 +8,11 @@
   "favicon": "https://notiz.dev/favicon.png",
   "copyright": "2020 notiz.dev",
   "generator": "Weeklyish Articles about Web Development",
+  "filename": "feed",
   "feedLinks": {
+    "atom": "https://notiz.dev/feed.atom",
     "json": "https://notiz.dev/feed.json",
-    "atom": "https://notiz.dev/feed.atom"
+    "xml": "https://notiz.dev/feed.xml"
   },
   "outDir": "./dist/static",
   "categories": ["Web Development", "Blog", "Angular", "node"]
