@@ -10,6 +10,8 @@ The rss feed is available at:
 - your-domain.de/feed.atom
 - your-domain.de/feed.xml
 
+To change the filename of the feed, use the `filename` attribute in your rss.config.json file, as seen below. The default value is feed, but you can change it to whatever you'd like.
+
 > **Breaking Change** introduced in Version 1.0.0 with changing the plugin type from `render` to `routeDiscoveryDone`. This has the major benefit of only generating the RSS Feed once per run instead of after each page render.
 
 ## 📦 Installation
@@ -53,9 +55,11 @@ Create a `rss.config.json` in your root with the following properties:
   "favicon": "https://you-domain.com/favicon.png",
   "copyright": "2020 your-domain.com",
   "generator": "Page description",
+  "filename": "feed",
   "feedLinks": {
+    "atom": "https://your-domain.com/feed.atom",
     "json": "https://your-domain.com/feed.json",
-    "atom": "https://your-domain.com/feed.atom"
+    "xml": "https://your-domain.com/feed.xml"
   },
   "outDir": "./dist/static",
   "categories": ["Categories", "of", "your", "choice"],
