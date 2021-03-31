@@ -30,6 +30,9 @@ const makeImageLazyload = async (doc, route) => {
       height: imgEl[i].height || 0,
     };
     if (src) {
+      if(src.startsWith('data:image/svg+xml')){
+        return;
+      }
       try {
         if (src.startsWith('http')) {
           const image = await get(src, {

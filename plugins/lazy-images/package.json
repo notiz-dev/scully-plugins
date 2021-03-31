@@ -1,6 +1,6 @@
 {
   "name": "@notiz/scully-plugin-lazy-images",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "scully plugin to add lazy loading for images",
   "main": "src/index.js",
   "author": "notiz.dev",
