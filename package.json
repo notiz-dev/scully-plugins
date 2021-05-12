@@ -54,7 +54,7 @@
     "karma-jasmine": "3.1.1",
     "karma-jasmine-html-reporter": "1.5.3",
     "ngx-build-plus": "10.1.1",
-    "postcss": "~8.1.9",
+    "postcss": "~8.2.10",
     "postcss-import": "~13.0.0",
     "postcss-loader": "4.1.0",
     "postcss-scss": "3.0.4",
