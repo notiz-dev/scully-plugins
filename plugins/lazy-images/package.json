@@ -29,11 +29,11 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@scullyio/scully": ">=0.0.75"
+    "@scullyio/scully": ">=1.1.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "image-size": "^0.8.3",
-    "jsdom": "^16.2.1"
+    "axios": "^0.21.1",
+    "image-size": "^1.0.0",
+    "jsdom": "^17.0.0"
   }
 }
