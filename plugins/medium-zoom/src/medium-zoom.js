@@ -38,7 +38,7 @@ const makeImageMediumZoom = (doc) => {
 const loadMediumZoom = (doc) => {
   const mediumZoom = doc.createElement('script');
   mediumZoom.src =
-    'https://cdn.jsdelivr.net/npm/medium-zoom@1.0.5/dist/medium-zoom.min.js';
+    'https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js';
   return mediumZoom;
 };
 
