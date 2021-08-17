@@ -15,9 +15,8 @@
       "prefix": "niz",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/scully-plugins",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,7 +29,6 @@
           },
           "configurations": {
             "production": {
-              "extraWebpackConfig": "webpack.config.js",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -40,7 +38,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -61,9 +58,8 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "scully-plugins:build"
           },
           "configurations": {
@@ -80,9 +76,8 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
