@@ -64,7 +64,8 @@ Create a `rss.config.json` in your root with the following properties:
   "outDir": "./dist/static",
   "categories": ["Categories", "of", "your", "choice"],
   "blogPostRouteSlug": "/blog",
-  "newestPostsFirst": true
+  "newestPostsFirst": true,
+  "markupLanguage": "markdown"
 }
 ```
 
