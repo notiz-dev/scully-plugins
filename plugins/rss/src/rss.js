@@ -3,11 +3,13 @@ const showdown = require('showdown');
 const { writeFileSync, readFileSync } = require('fs');
 const { join } = require('path');
 const { log, logError, yellow } = require('@scullyio/scully');
+const asciidoctor = require('asciidoctor.js')();
 
 const configFile = readFileSync(`${process.cwd()}/rss.config.json`, 'utf8');
 const config = JSON.parse(configFile.toString());
 const blogPostRouteSlug = config.blogPostRouteSlug || '/blog';
 const filename = config.filename || 'feed';
+const markupLanguage = config.markupLanguage || 'markdown';
 const feed = new Feed(config);
 
 config.categories.forEach((cat) => {
@@ -61,13 +63,19 @@ const createFeedItemFromRoute = (route) => {
   let item;
   try {
     if (route.data.published) {
-      const mdString = readFileSync(route.templateFile, 'utf8').toString();
+      const articleString = readFileSync(route.templateFile, 'utf8').toString();
 
-      const md = mdString.slice(
-        nth_occurrence(mdString, '---', 2) + 3,
-        mdString.length - 1
+      const article = articleString.slice(
+        nth_occurrence(articleString, '---', 2) + 3,
+        articleString.length - 1
       );
-      const articleHTML = new showdown.Converter().makeHtml(md);
+
+      const articleHTML = '';
+      if (markupLanguage === 'asciidoc') {
+        articleHTML = asciidoctor.convert(article);
+      } else {
+        articleHTML = new showdown.Converter().makeHtml(article);
+      }
 
       item = {
         title: route.data.title,
